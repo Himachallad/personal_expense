@@ -1,12 +1,17 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatelessWidget {
-  final titleTextController = TextEditingController();
-  final amountTextController = TextEditingController();
+class NewTransaction extends StatefulWidget {
   final Function addNewTransaction;
   NewTransaction(this.addNewTransaction);
+
+  @override
+  _NewTransactionState createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> {
+  final titleTextController = TextEditingController();
+
+  final amountTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +29,18 @@ class NewTransaction extends StatelessWidget {
               cursorColor: Colors.teal[600],
               style: TextStyle(color: Colors.teal[600]),
               controller: titleTextController,
+              onSubmitted: (_) => submitData(),
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
               cursorColor: Colors.teal[600],
               style: TextStyle(color: Colors.teal[600]),
               controller: amountTextController,
+              keyboardType: TextInputType.number,
+              onSubmitted: (_) => submitData(),
             ),
             FlatButton(
-              onPressed: () {
-                addNewTransaction(titleTextController.text,
-                    double.parse(amountTextController.text));
-              },
+              onPressed: submitData,
               child: Text('Add transaction'),
               textColor: Colors.teal[600],
             )
@@ -43,5 +48,16 @@ class NewTransaction extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void submitData() {
+    final enteredTitle = titleTextController.text;
+    final enteredAmount = double.parse(amountTextController.text);
+
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+    widget.addNewTransaction(enteredTitle, enteredAmount);
+    Navigator.of(context).pop();
   }
 }
