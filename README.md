@@ -1,16 +1,12 @@
 # personal_expense
 
-A new Flutter project.
+When it comes to managing money most of us run by raw emotions and sometimes overspend. Last weeks of the month are tough to deal with. To help with this issue we have built this expense app.
 
-## Getting Started
+It helps you in:
+- Keeping track of your spends
+- Editing/Deleting wrong transactions.
+- Getting chart for your weekly spends.
 
-This project is a starting point for a Flutter application.
+![image](https://user-images.githubusercontent.com/20709166/88466717-d9ce4880-ceec-11ea-8144-b9637e887dc9.png)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image](https://user-images.githubusercontent.com/20709166/88466705-b7d4c600-ceec-11ea-98e7-c8840027f5d8.png)
